@@ -7,6 +7,7 @@ import * as components from './components';
 import { Form } from './components';
 
 import { Alert } from 'antd';
+import { CustomComponent } from '../../form-components';
 
 // 添加自定义 ErrorBoundary
 class ErrorBoundary extends React.Component<{ children: React.ReactNode }> {
@@ -25,7 +26,10 @@ class ErrorBoundary extends React.Component<{ children: React.ReactNode }> {
 }
 
 const SchemaField = createSchemaField({
-  components,
+  components: {
+    ...components,
+    CustomComponent,
+  },
 });
 
 export interface IPreviewWidgetProps {
@@ -35,8 +39,11 @@ export interface IPreviewWidgetProps {
 export const PreviewWidget: React.FC<IPreviewWidgetProps> = (props) => {
   const form = useMemo(() => createForm(), []);
   const { form: formProps, schema } = transformToSchema(props.tree);
+  console.log(schema, 'schema');
   return (
     <ErrorBoundary>
+      <div>预览界面</div>
+
       <Form {...formProps} form={form}>
         <SchemaField schema={schema} />
       </Form>

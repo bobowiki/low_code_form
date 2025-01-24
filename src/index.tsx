@@ -30,9 +30,8 @@ import {
   PreviewWidget,
   SchemaEditorWidget,
   MarkupSchemaWidget,
-} from './widgets_copy';
+} from './widgets';
 import { saveSchema } from './service';
-// import { sources } from '@pind/designable-formily-antd';
 import { Alert } from 'antd';
 import {
   Form,
@@ -62,6 +61,7 @@ import {
   FormCollapse,
   FormLayout,
   FormGrid,
+  CustomComponent,
 } from './form-components';
 
 // 添加自定义 ErrorBoundary 组件
@@ -160,6 +160,7 @@ const App = () => {
                 FormCollapse,
                 FormLayout,
                 FormGrid,
+                CustomComponent,
               ]}
             />
           </CompositePanel.Item>
@@ -211,6 +212,7 @@ const App = () => {
                         FormCollapse,
                         FormLayout,
                         FormGrid,
+                        CustomComponent,
                       }}
                     />
                   )}

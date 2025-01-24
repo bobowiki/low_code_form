@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 export {
   Form,
   FormItem,
@@ -26,14 +26,14 @@ export {
   FormCollapse,
   ArrayTable,
   ArrayCards,
-} from '@formily/antd-v5'
-export { Card, Slider, Rate } from 'antd'
+} from '@formily/antd-v5';
+export { Card, Slider, Rate, Button } from 'antd';
 
 export const Text: React.FC<{
-  value?: string
-  content?: string
-  mode?: 'normal' | 'h1' | 'h2' | 'h3' | 'p'
+  value?: string;
+  content?: string;
+  mode?: 'normal' | 'h1' | 'h2' | 'h3' | 'p';
 }> = ({ value, mode, content, ...props }) => {
-  const tagName = mode === 'normal' || !mode ? 'div' : mode
-  return React.createElement(tagName, props, value || content)
-}
+  const tagName = mode === 'normal' || !mode ? 'div' : mode;
+  return React.createElement(tagName, props, value || content);
+};

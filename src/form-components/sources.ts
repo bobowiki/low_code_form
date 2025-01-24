@@ -26,4 +26,4 @@ export {
   FormCollapse,
   FormLayout,
   FormGrid,
-} from './components'
+} from './components';

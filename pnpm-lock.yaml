@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@designable/core':
+        specifier: 1.0.0-beta.45
+        version: 1.0.0-beta.45(@formily/json-schema@2.3.2(typescript@5.7.3))(@formily/path@2.3.2)(@formily/reactive@2.3.2)
       '@formily/antd-v5':
         specifier: ^1.2.3
         version: 1.2.3(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(antd@5.23.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(typescript@5.7.3)
@@ -56,6 +59,9 @@ importers:
       classnames:
         specifier: ^2.5.1
         version: 2.5.1
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -162,6 +168,18 @@ packages:
   '@babel/types@7.26.5':
     resolution: {integrity: sha512-L6mZmwFDK6Cjh1nRCLXpa6no13ZIioJDz7mdkzHv399pThrTa/k0nUlNaenOeh2kWu/iaOQYElEpKPUswUa9Vg==}
     engines: {node: '>=6.9.0'}
+
+  '@designable/core@1.0.0-beta.45':
+    resolution: {integrity: sha512-zCN2O9HlVaqcd90KCl1OtsWTBMX4+xcWfew9sqxQfOE9GWc2VENw2IpbHcIsGaEDhklmZZ83vnDrivjwhZMMsw==}
+    engines: {npm: '>=3.0.0'}
+    peerDependencies:
+      '@formily/json-schema': ^2.0.2
+      '@formily/path': ^2.0.2
+      '@formily/reactive': ^2.0.2
+
+  '@designable/shared@1.0.0-beta.45':
+    resolution: {integrity: sha512-gHbTp+LlpIOvKg2QX6iq8BotNn98Dnf2/xc2fXJfWz97YlbSDEqYaPiCAQYHGoucAjj1BWYZQFdNar1FdOfR9g==}
+    engines: {npm: '>=3.0.0'}
 
   '@dnd-kit/accessibility@3.1.1':
     resolution: {integrity: sha512-2P+YgaXF+gRsIihwwY1gCsQSYnu9Zyj2py8kY5fFvUM1qm2WA2u639R6YNVfU4GWr+ZM5mqEsfHZZLoRONbemw==}
@@ -1936,6 +1954,18 @@ snapshots:
     dependencies:
       '@babel/helper-string-parser': 7.25.9
       '@babel/helper-validator-identifier': 7.25.9
+
+  '@designable/core@1.0.0-beta.45(@formily/json-schema@2.3.2(typescript@5.7.3))(@formily/path@2.3.2)(@formily/reactive@2.3.2)':
+    dependencies:
+      '@designable/shared': 1.0.0-beta.45
+      '@formily/json-schema': 2.3.2(typescript@5.7.3)
+      '@formily/path': 2.3.2
+      '@formily/reactive': 2.3.2
+      '@juggle/resize-observer': 3.4.0
+
+  '@designable/shared@1.0.0-beta.45':
+    dependencies:
+      requestidlecallback: 0.3.0
 
   '@dnd-kit/accessibility@3.1.1(react@18.3.1)':
     dependencies:

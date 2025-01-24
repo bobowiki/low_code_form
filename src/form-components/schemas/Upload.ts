@@ -1,4 +1,4 @@
-import { ISchema } from '@formily/react'
+import { ISchema } from '@formily/react';
 
 export const Upload: ISchema & { Dragger?: ISchema } = {
   type: 'object',
@@ -19,6 +19,7 @@ export const Upload: ISchema & { Dragger?: ISchema } = {
       'x-component-props': {
         include: ['TEXT', 'EXPRESSION'],
       },
+      default: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
     },
     name: {
       type: 'string',
@@ -38,9 +39,9 @@ export const Upload: ISchema & { Dragger?: ISchema } = {
       'x-decorator': 'FormItem',
       'x-component': 'Radio.Group',
       'x-component-props': {
-        defaultValue: 'POST',
         optionType: 'button',
       },
+      default: 'GET',
     },
     data: {
       'x-decorator': 'FormItem',
@@ -98,6 +99,6 @@ export const Upload: ISchema & { Dragger?: ISchema } = {
       'x-component': 'Switch',
     },
   },
-}
+};
 
-Upload.Dragger = Upload
+Upload.Dragger = Upload;

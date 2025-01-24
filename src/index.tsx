@@ -17,10 +17,7 @@ import {
   ComponentTreeWidget,
   ResourceListWidget,
 } from '@pind/designable-react';
-import {
-  SettingsForm,
-  setNpmCDNRegistry,
-} from '@pind/designable-react-settings-form';
+import { SettingsForm } from '@pind/designable-react-settings-form';
 import {
   createDesigner,
   GlobalRegistry,
@@ -35,10 +32,54 @@ import {
   MarkupSchemaWidget,
 } from './widgets_copy';
 import { saveSchema } from './service';
-import { sources } from '@pind/designable-formily-antd';
+// import { sources } from '@pind/designable-formily-antd';
 import { Alert } from 'antd';
-setNpmCDNRegistry('//unpkg.com');
-const { ErrorBoundary } = Alert;
+import {
+  Form,
+  Field,
+  Input,
+  Select,
+  TreeSelect,
+  Cascader,
+  Radio,
+  Checkbox,
+  Slider,
+  Rate,
+  NumberPicker,
+  Transfer,
+  Password,
+  DatePicker,
+  TimePicker,
+  Upload,
+  Switch,
+  Text,
+  Card,
+  ArrayCards,
+  ObjectContainer,
+  ArrayTable,
+  Space,
+  FormTab,
+  FormCollapse,
+  FormLayout,
+  FormGrid,
+} from './form-components';
+
+// 添加自定义 ErrorBoundary 组件
+class ErrorBoundary extends React.Component<{ children: React.ReactNode }> {
+  state = { hasError: false };
+
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return <Alert type="error" message="Something went wrong" />;
+    }
+    return this.props.children;
+  }
+}
+
 GlobalRegistry.registerDesignerLocales({
   'zh-CN': {
     sources: {
@@ -48,22 +89,22 @@ GlobalRegistry.registerDesignerLocales({
       Displays: '展示组件',
     },
   },
-  'en-US': {
-    sources: {
-      Inputs: 'Inputs',
-      Layouts: 'Layouts',
-      Arrays: 'Arrays',
-      Displays: 'Displays',
-    },
-  },
-  'ko-KR': {
-    sources: {
-      Inputs: '입력',
-      Layouts: '레이아웃',
-      Arrays: '배열',
-      Displays: '디스플레이',
-    },
-  },
+  // 'en-US': {
+  //   sources: {
+  //     Inputs: 'Inputs',
+  //     Layouts: 'Layouts',
+  //     Arrays: 'Arrays',
+  //     Displays: 'Displays',
+  //   },
+  // },
+  // 'ko-KR': {
+  //   sources: {
+  //     Inputs: '입력',
+  //     Layouts: '레이아웃',
+  //     Arrays: '배열',
+  //     Displays: '디스플레이',
+  //   },
+  // },
 });
 
 const App = () => {
@@ -90,7 +131,37 @@ const App = () => {
       <StudioPanel actions={<ActionsWidget />}>
         <CompositePanel>
           <CompositePanel.Item title="panels.Component" icon="Component">
-            <ResourceListWidget sources={Object.values({ ...sources })} />
+            <ResourceListWidget
+              sources={[
+                Form,
+                Field,
+                Input,
+                Select,
+                TreeSelect,
+                Cascader,
+                Radio,
+                Checkbox,
+                Slider,
+                Rate,
+                NumberPicker,
+                Transfer,
+                Password,
+                DatePicker,
+                TimePicker,
+                Upload,
+                Switch,
+                Text,
+                Card,
+                ArrayCards,
+                ObjectContainer,
+                ArrayTable,
+                Space,
+                FormTab,
+                FormCollapse,
+                FormLayout,
+                FormGrid,
+              ]}
+            />
           </CompositePanel.Item>
           <CompositePanel.Item title="panels.OutlinedTree" icon="Outline">
             <OutlineTreeWidget />
@@ -110,7 +181,39 @@ const App = () => {
               </ToolbarPanel>
               <ViewportPanel style={{ height: '100%' }}>
                 <ViewPanel type="DESIGNABLE">
-                  {() => <ComponentTreeWidget components={{ ...sources }} />}
+                  {() => (
+                    <ComponentTreeWidget
+                      components={{
+                        Form,
+                        Field,
+                        Input,
+                        Select,
+                        TreeSelect,
+                        Cascader,
+                        Radio,
+                        Checkbox,
+                        Slider,
+                        Rate,
+                        NumberPicker,
+                        Transfer,
+                        Password,
+                        DatePicker,
+                        TimePicker,
+                        Upload,
+                        Switch,
+                        Text,
+                        Card,
+                        ArrayCards,
+                        ObjectContainer,
+                        ArrayTable,
+                        Space,
+                        FormTab,
+                        FormCollapse,
+                        FormLayout,
+                        FormGrid,
+                      }}
+                    />
+                  )}
                 </ViewPanel>
                 <ViewPanel type="JSONTREE" scrollable={false}>
                   {(tree, onChange) => (
@@ -139,9 +242,5 @@ const App = () => {
 const rootEl = document.getElementById('root');
 if (rootEl) {
   const root = ReactDOM.createRoot(rootEl);
-  root.render(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>,
-  );
+  root.render(<App />);
 }

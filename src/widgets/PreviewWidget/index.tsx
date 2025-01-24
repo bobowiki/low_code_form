@@ -8,7 +8,21 @@ import { Form } from './components';
 
 import { Alert } from 'antd';
 
-const { ErrorBoundary } = Alert;
+// 添加自定义 ErrorBoundary
+class ErrorBoundary extends React.Component<{ children: React.ReactNode }> {
+  state = { hasError: false };
+
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return <Alert type="error" message="Something went wrong" />;
+    }
+    return this.props.children;
+  }
+}
 
 const SchemaField = createSchemaField({
   components,
